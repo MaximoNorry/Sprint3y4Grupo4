@@ -1,7 +1,15 @@
 import React from "react";
+import { useState } from "react";
 
 const ProductDetail = ({ producto, onAddToCart }) => {
-return (
+    const [cantidad, setCantidad] = useState(1);
+
+    const handleAddToCart = () => {
+        // user hacer clicl -> envio el producto + cantidad
+        onAddToCart({ ...producto, cantidad });
+    };
+
+    return (
     <div className="product-detail">
     <img src={`/images/${producto.nombre.toLowerCase().replace(/ /g, " ")}.png`} alt={producto.nombre} />
     <h2>{producto.nombre}</h2>
@@ -11,9 +19,21 @@ return (
     <p><strong>Acabado:</strong> {producto.acabado}</p>
     <p><strong>Precio:</strong> ${producto.precio}</p>
 
+    <div style={{ marginTop: "10px" }}>
+        <label htmlFor="cantidad"><strong>Cantidad:</strong></label>
+        <input
+          id="cantidad"
+          type="number"
+          min="1"
+          value={cantidad}
+          onChange={(e) => setCantidad(parseInt(e.target.value))}
+          style={{ width: "60px", marginLeft: "8px" }}
+        />
+    </div>
+
     <button onClick={() => onAddToCart(producto)}>Añadir al Carrito</button>
     </div>
-);
+    );
 };
 
 export default ProductDetail;

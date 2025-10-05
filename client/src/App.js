@@ -27,9 +27,20 @@ function App() {
       });
   }, []);
 
-  const handleAgregarAlCarrito = (producto) => {
-    setCarrito([...carrito, producto]);
-  };
+  const handleAgregarAlCarrito = (item) => {
+  const existente = carrito.find(p => p.id === item.id);
+
+  if (existente) {
+    // si ya está en el carrito, aumenta la cantidad
+    const nuevoCarrito = carrito.map(p =>
+      p.id === item.id ? { ...p, cantidad: p.cantidad + item.cantidad } : p
+    );
+    setCarrito(nuevoCarrito);
+  } else {
+    //si no, lo agrego con la cantidad seleccionada
+    setCarrito([...carrito, item]);
+  }
+};
 
   const volverAlCatalogo = () => {
     setProductoSeleccionado(null);
