@@ -1,15 +1,34 @@
 import React from "react";
 
-function ProductDetail({ producto, addToCart, onBack }) {
+const ProductDetail = ({ producto, onBack, onAddToCart }) => {
+if (!producto) return null;
+
+const imagePath = `/images/${producto.nombre.toLowerCase().replace(/ /g, " ")}.png`;
+
 return (
     <div className="product-detail">
-    <img src={producto.img} alt={producto.nombre} />
+    <img
+        src={imagePath}
+        alt={producto.nombre}
+    />
     <h2>{producto.nombre}</h2>
     <p>{producto.descripcion}</p>
-    <button onClick={() => addToCart(producto)}>Añadir al Carrito</button>
-    <button style={{ marginTop: "1rem" }} onClick={onBack}>Volver al catálogo</button>
+
+    <div className="product-specs">
+        <p><strong>Medidas:</strong> {producto.medidas}</p>
+        <p><strong>Materiales:</strong> {producto.materiales}</p>
+        <p><strong>Acabado:</strong> {producto.acabado}</p>
+    </div>
+
+    <button onClick={() => onAddToCart(producto)}>Añadir al Carrito</button>
+    <button 
+        onClick={onBack} 
+        style={{ marginTop: "1rem", backgroundColor: "#C47A6D" }}
+    >
+        Volver al Catálogo
+    </button>
     </div>
 );
-}
+};
 
 export default ProductDetail;
