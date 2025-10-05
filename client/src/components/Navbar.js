@@ -1,12 +1,15 @@
 import React from "react";
 
-const Navbar = ({ cantidadCarrito, volverAlCatalogo }) => {
+function Navbar({ carritoCount, volverAlCatalogo }) {
 return (
     <nav className="navbar">
-    <h1 onClick={volverAlCatalogo} style={{ cursor: "pointer" }}>Hermanos Jota</h1>
-    <div className="carrito">Carrito: {cantidadCarrito}</div>
+    <div className="logo-titulo" onClick={volverAlCatalogo} style={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
+        <img src="/images/logo.svg" alt="Logo Hermanos Jota" className="logo" />
+        <h1>Hermanos Jota</h1>
+    </div>
+    <div className="carrito">Carrito: {carritoCount}</div>
     </nav>
 );
-};
+}
 
 export default Navbar;

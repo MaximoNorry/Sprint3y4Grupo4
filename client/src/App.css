@@ -1,16 +1,14 @@
-/* Variables de Marca */
 :root {
-  --color-principal: #A0522D;    /* Siena Tostado */
-  --color-secundario: #87A96B;   /* Verde Salvia */
-  --color-fondo: #F5E6D3;        /* Alabastro Cálido */
-  --color-acento: #D4A437;       /* Vara de Oro */
-  --color-detalle: #C47A6D;      /* Rosa Polvoriento */
+  --color-principal: #A0522D;
+  --color-secundario: #87A96B;
+  --color-fondo: #F5E6D3;
+  --color-acento: #D4A437;
+  --color-detalle: #C47A6D;
 
   --font-primary: 'Inter', sans-serif;
   --font-secondary: 'Playfair Display', serif;
 }
 
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +22,6 @@ body {
   line-height: 1.6;
 }
 
-/* NAVBAR */
 .navbar {
   background-color: var(--color-principal);
   color: #fff;
@@ -35,11 +32,22 @@ body {
   font-weight: 500;
 }
 
+.logo-titulo img.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+
 .navbar h1 {
   font-family: var(--font-secondary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 1.5rem;
+  margin: 0;
 }
 
 .navbar .carrito {
@@ -49,7 +57,6 @@ body {
   font-weight: bold;
 }
 
-/* PRODUCT LIST */
 .product-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -90,7 +97,6 @@ body {
   color: #555;
 }
 
-/* PRODUCT DETAIL */
 .product-detail {
   padding: 2rem;
   display: flex;
@@ -145,8 +151,6 @@ body {
 .product-detail button:hover {
   background-color: var(--color-acento);
 }
-
-/* CONTACT FORM */
 .contact-form {
   background-color: #fff;
   border-radius: 12px;
@@ -187,7 +191,6 @@ body {
   background-color: var(--color-acento);
 }
 
-/* FOOTER */
 .footer {
   background-color: var(--color-principal);
   color: #fff;
