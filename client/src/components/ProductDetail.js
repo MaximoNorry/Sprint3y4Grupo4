@@ -9,6 +9,8 @@ return (
     <p><strong>Medidas:</strong> {producto.medidas}</p>
     <p><strong>Materiales:</strong> {producto.materiales}</p>
     <p><strong>Acabado:</strong> {producto.acabado}</p>
+    <p><strong>Precio:</strong> ${producto.precio}</p>
+
     <button onClick={() => onAddToCart(producto)}>Añadir al Carrito</button>
     </div>
 );
