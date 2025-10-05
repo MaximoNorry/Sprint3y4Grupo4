@@ -41,7 +41,7 @@ Asegurarse de que el backend esté corriendo antes de abrir el frontend para que
 
 **Decisiones importantes:**
 
-.Componentes React separados y reutilizables: <Navbar>, <Footer>, <ProductList>, <ProductCard>, <ProductDetail>, <ContactForm>.
+.Componentes React separados y reutilizables: Navbar, Footer, ProductList, ProductCard, ProductDetail, ContactForm.
 
 .Estado React manejado con useState y lifting state para el carrito y selección de productos.
 
