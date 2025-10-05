@@ -1,14 +1,18 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 
-function ProductList({ productos, onSelect }) {
+const ProductList = ({ productos, setProductoSeleccionado }) => {
   return (
     <div className="product-list">
       {productos.map((producto) => (
-        <ProductCard key={producto.id} producto={producto} onSelect={onSelect} />
+        <ProductCard
+          key={producto.id}
+          producto={producto}
+          onSelect={() => setProductoSeleccionado(producto)}
+        />
       ))}
     </div>
   );
-}
+};
 
 export default ProductList;

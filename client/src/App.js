@@ -1,54 +1,56 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import "./App.css";
+
 import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
 import ProductDetail from "./components/ProductDetail";
 import ContactForm from "./components/ContactForm";
-import "./App.css";
+import Footer from "./components/Footer";
 
 function App() {
   const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
   const [carrito, setCarrito] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:5000/api/productos")
       .then((res) => res.json())
       .then((data) => {
         setProductos(data);
-        setLoading(false);
+        setCargando(false);
       })
       .catch(() => {
         setError(true);
-        setLoading(false);
+        setCargando(false);
       });
   }, []);
 
-  const addToCart = (producto) => {
+  const handleAgregarAlCarrito = (producto) => {
     setCarrito([...carrito, producto]);
   };
 
-  const handleSelectProduct = (producto) => {
-    setSelectedProduct(producto);
-  };
-
-  const handleBackToList = () => {
-    setSelectedProduct(null);
+  const volverAlCatalogo = () => {
+    setProductoSeleccionado(null);
   };
 
   return (
     <div className="App">
-      <Navbar carritoCount={carrito.length} />
-      {loading && <p style={{ padding: "2rem" }}>Cargando...</p>}
-      {error && <p style={{ padding: "2rem", color: "red" }}>Error al cargar productos</p>}
-      {!loading && !error && !selectedProduct && (
-        <ProductList productos={productos} onSelect={handleSelectProduct} />
+      <Navbar cantidadCarrito={carrito.length} volverAlCatalogo={volverAlCatalogo} />
+
+      {cargando && <p>Cargando...</p>}
+      {error && <p>Error al cargar los productos.</p>}
+
+      {!productoSeleccionado && !cargando && !error && (
+        <ProductList productos={productos} setProductoSeleccionado={setProductoSeleccionado} />
       )}
-      {selectedProduct && (
-        <ProductDetail producto={selectedProduct} addToCart={addToCart} onBack={handleBackToList} />
+
+      {productoSeleccionado && (
+        <ProductDetail producto={productoSeleccionado} onAddToCart={handleAgregarAlCarrito} />
       )}
-      <ContactForm />
+      <ContactForm/>
+      <Footer />
     </div>
   );
 }

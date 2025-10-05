@@ -1,14 +1,16 @@
+/* Variables de Marca */
 :root {
-  --color-principal: #A0522D;
-  --color-secundario: #87A96B;
-  --color-fondo: #F5E6D3;
-  --color-acento: #D4A437;
-  --color-detalle: #C47A6D;
+  --color-principal: #A0522D;    /* Siena Tostado */
+  --color-secundario: #87A96B;   /* Verde Salvia */
+  --color-fondo: #F5E6D3;        /* Alabastro Cálido */
+  --color-acento: #D4A437;       /* Vara de Oro */
+  --color-detalle: #C47A6D;      /* Rosa Polvoriento */
 
   --font-primary: 'Inter', sans-serif;
   --font-secondary: 'Playfair Display', serif;
 }
 
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -22,6 +24,7 @@ body {
   line-height: 1.6;
 }
 
+/* NAVBAR */
 .navbar {
   background-color: var(--color-principal);
   color: #fff;
@@ -46,6 +49,7 @@ body {
   font-weight: bold;
 }
 
+/* PRODUCT LIST */
 .product-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -58,11 +62,13 @@ body {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
 }
 
 .product-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .product-card img {
@@ -75,13 +81,16 @@ body {
   font-family: var(--font-secondary);
   color: var(--color-principal);
   margin: 1rem;
+  font-size: 1.2rem;
 }
 
 .product-card p {
   margin: 0 1rem 1rem;
   font-size: 0.9rem;
+  color: #555;
 }
 
+/* PRODUCT DETAIL */
 .product-detail {
   padding: 2rem;
   display: flex;
@@ -103,11 +112,22 @@ body {
   font-family: var(--font-secondary);
   color: var(--color-principal);
   margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  text-align: center;
 }
 
 .product-detail p {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.product-detail .detalle {
+  text-align: left;
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #444;
 }
 
 .product-detail button {
@@ -119,17 +139,19 @@ body {
   cursor: pointer;
   font-weight: 500;
   transition: background-color 0.2s;
+  margin-top: 1rem;
 }
 
 .product-detail button:hover {
   background-color: var(--color-acento);
 }
 
+/* CONTACT FORM */
 .contact-form {
   background-color: #fff;
   border-radius: 12px;
   padding: 2rem;
-  margin: 2rem;
+  margin: 2rem auto;
   max-width: 500px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
@@ -164,3 +186,33 @@ body {
 .contact-form button:hover {
   background-color: var(--color-acento);
 }
+
+/* FOOTER */
+.footer {
+  background-color: var(--color-principal);
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+.footer a {
+  color: var(--color-acento);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* UTILS */
+h1, h2, h3 {
+  font-family: var(--font-secondary);
+}
+
+button {
+  font-family: var(--font-primary);
+}
+

@@ -1,12 +1,12 @@
 import React from "react";
 
-function Navbar({ carritoCount }) {
+const Navbar = ({ cantidadCarrito, volverAlCatalogo }) => {
 return (
     <nav className="navbar">
-    <h1>Hermanos Jota</h1>
-    <div className="carrito">Carrito: {carritoCount}</div>
+    <h1 onClick={volverAlCatalogo} style={{ cursor: "pointer" }}>Hermanos Jota</h1>
+    <div className="carrito">Carrito: {cantidadCarrito}</div>
     </nav>
 );
-}
+};
 
 export default Navbar;
