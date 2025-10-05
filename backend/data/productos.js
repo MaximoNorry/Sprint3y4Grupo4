@@ -5,7 +5,8 @@ const productos = [
     descripcion: "Aparador de seis puertas fabricado en nogal sostenible con tiradores metálicos en acabado latón. Su silueta minimalista realza el veteado natural de la madera...",
     medidas: "180 × 45 × 75 cm",
     materiales: "Nogal macizo FSC®, herrajes de latón",
-    acabado: "Aceite natural ecológico"
+    acabado: "Aceite natural ecológico",
+    img: "/images/aparador uspallata.png"
 },
 {
     id: 2,
@@ -13,7 +14,8 @@ const productos = [
     descripcion: "Sistema modular de estantes abierto que combina estructura de acero Sage Green y repisas en roble claro...",
     medidas: "100 × 35 × 200 cm",
     materiales: "Estructura de acero, estantes de roble",
-    acabado: "Laca mate ecológica"
+    acabado: "Laca mate ecológica",
+    img: "/images/biblioteca recoleta.png"
 },
 {
     id: 3,
@@ -21,7 +23,8 @@ const productos = [
     descripcion: "Butaca tapizada en bouclé Dusty Rose con base de madera de guatambú. El respaldo curvo abraza el cuerpo y ofrece máximo confort...",
     medidas: "80 × 75 × 85 cm",
     materiales: "Guatambú macizo, tela bouclé",
-    acabado: "Cera vegetal, tapizado premium"
+    acabado: "Cera vegetal, tapizado premium",
+    img: "/images/butaca mendoza.png"
 },
 {
     id: 4,
@@ -29,7 +32,8 @@ const productos = [
     descripcion: "Sillón lounge en cuero cognac con base giratoria en acero Burnt Sienna. Inspirado en la estética brasilera moderna de los 60...",
     medidas: "90 × 85 × 95 cm",
     materiales: "Cuero curtido vegetal, acero pintado",
-    acabado: "Cuero anilina premium"
+    acabado: "Cuero anilina premium",
+    img: "/images/sillón copacabana.png"
 },
 {
     id: 5,
@@ -37,7 +41,8 @@ const productos = [
     descripcion: "Mesa de centro con sobre circular de mármol Patagonia y base de tres patas en madera de nogal...",
     medidas: "90 × 90 × 45 cm",
     materiales: "Sobre de mármol Patagonia, patas de nogal",
-    acabado: "Mármol pulido, aceite natural en madera"
+    acabado: "Mármol pulido, aceite natural en madera",
+    img: "/images/mesa de centro araucaria.png"
 },
 {
     id: 6,
@@ -45,7 +50,8 @@ const productos = [
     descripcion: "Mesa de noche con cajón oculto y repisa inferior en roble certificado FSC®...",
     medidas: "45 × 35 × 60 cm",
     materiales: "Roble macizo FSC®, herrajes soft-close",
-    acabado: "Barniz mate de poliuretano"
+    acabado: "Barniz mate de poliuretano",
+    img: "/images/mesa de noche aconcagua.png"
 },
 {
     id: 7,
@@ -53,7 +59,8 @@ const productos = [
     descripcion: "Cama plataforma con cabecero flotante tapizado en lino natural y estructura de madera maciza...",
     medidas: "160 × 200 × 90 cm",
     materiales: "Roble macizo FSC®, tapizado lino",
-    acabado: "Aceite natural, tapizado premium"
+    acabado: "Aceite natural, tapizado premium",
+    img: "/images/cama neuquén.png"
 },
 {
     id: 8,
@@ -61,7 +68,8 @@ const productos = [
     descripcion: "Sofá de tres cuerpos tapizado en lino Warm Alabaster con patas cónicas de madera...",
     medidas: "220 × 90 × 80 cm",
     materiales: "Madera de eucalipto certificada FSC®, lino 100% natural premium",
-    acabado: "Espuma HR + plumón reciclado"
+    acabado: "Espuma HR + plumón reciclado",
+    img: "/images/sofá patagonia.png"
 },
 {
     id: 9,
@@ -69,7 +77,8 @@ const productos = [
     descripcion: "Mesa extensible de roble macizo con tablero biselado y sistema de apertura suave...",
     medidas: "160-240 × 90 × 75 cm",
     materiales: "Roble macizo FSC®, mecanismo alemán",
-    acabado: "Aceite-cera natural"
+    acabado: "Aceite-cera natural",
+    img: "/images/mesa comedor pampa.png"
 },
 {
     id: 10,
@@ -77,7 +86,8 @@ const productos = [
     descripcion: "Set de cuatro sillas apilables en contrachapado moldeado de nogal y estructura tubular pintada...",
     medidas: "45 × 52 × 80 cm (cada una)",
     materiales: "Contrachapado nogal, tubo de acero",
-    acabado: "Laca mate, pintura epoxi"
+    acabado: "Laca mate, pintura epoxi",
+    img: "/images/sillas córdoba.png"
 },
 {
     id: 11,
@@ -85,7 +95,8 @@ const productos = [
     descripcion: "Escritorio compacto con cajón organizado y tapa pasacables integrada en bambú laminado...",
     medidas: "120 × 60 × 75 cm",
     materiales: "Bambú laminado, herrajes ocultos",
-    acabado: "Laca mate resistente"
+    acabado: "Laca mate resistente",
+    img: "/images/escritorio costa.png"
 },
 {
     id: 12,
@@ -93,7 +104,8 @@ const productos = [
     descripcion: "Silla ergonómica regulable en altura con respaldo de malla transpirable y asiento tapizado en tejido reciclado...",
     medidas: "60 × 60 × 90-100 cm",
     materiales: "Malla técnica, tejido reciclado",
-    acabado: "Base cromada, tapizado premium"
+    acabado: "Base cromada, tapizado premium",
+    img: "/images/silla de trabajo belgrano.png"
 }
 ];
 
