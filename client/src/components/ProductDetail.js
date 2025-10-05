@@ -1,17 +1,15 @@
 import React from "react";
 
-const ProductDetail = ({ producto, onBack, onAddToCart }) => {
+function ProductDetail({ producto, addToCart, onBack }) {
 return (
-    <div style={{ padding: "1rem" }}>
-    <button onClick={onBack}>Volver al catálogo</button>
+    <div className="product-detail">
+    <img src={producto.img} alt={producto.nombre} />
     <h2>{producto.nombre}</h2>
     <p>{producto.descripcion}</p>
-    <p><strong>Medidas:</strong> {producto.medidas}</p>
-    <p><strong>Materiales:</strong> {producto.materiales}</p>
-    <p><strong>Acabado:</strong> {producto.acabado}</p>
-    <button onClick={() => onAddToCart(producto)}>Añadir al carrito</button>
+    <button onClick={() => addToCart(producto)}>Añadir al Carrito</button>
+    <button style={{ marginTop: "1rem" }} onClick={onBack}>Volver al catálogo</button>
     </div>
 );
-};
+}
 
 export default ProductDetail;

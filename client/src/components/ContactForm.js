@@ -1,58 +1,32 @@
 import React, { useState } from "react";
 
-const ContactForm = () => {
-const [formData, setFormData] = useState({ nombre: "", email: "", mensaje: "" });
+function ContactForm() {
+const [form, setForm] = useState({ nombre: "", email: "", mensaje: "" });
 const [success, setSuccess] = useState(false);
 
 const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
 };
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log(form);
     setSuccess(true);
-    setFormData({ nombre: "", email: "", mensaje: "" });
+    setForm({ nombre: "", email: "", mensaje: "" });
 };
 
 return (
-    <div style={{ padding: "1rem", marginTop: "2rem" }}>
-    <h2>Contacto</h2>
-    {success && <p>Formulario enviado con éxito!</p>}
-    <form onSubmit={handleSubmit}>
-        <div>
-        <input
-            type="text"
-            name="nombre"
-            placeholder="Nombre"
-            value={formData.nombre}
-            onChange={handleChange}
-            required
-        />
-        </div>
-        <div>
-        <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-        />
-        </div>
-        <div>
-        <textarea
-            name="mensaje"
-            placeholder="Mensaje"
-            value={formData.mensaje}
-            onChange={handleChange}
-            required
-        />
-        </div>
-        <button type="submit">Enviar</button>
+    <form className="contact-form" onSubmit={handleSubmit}>
+    <label>Nombre</label>
+    <input type="text" name="nombre" value={form.nombre} onChange={handleChange} required />
+    <label>Email</label>
+    <input type="email" name="email" value={form.email} onChange={handleChange} required />
+    <label>Mensaje</label>
+    <textarea name="mensaje" value={form.mensaje} onChange={handleChange} required />
+    <button type="submit">Enviar</button>
+    {success && <p style={{ color: "green", marginTop: "1rem" }}>¡Mensaje enviado con éxito!</p>}
     </form>
-    </div>
 );
-};
+}
 
 export default ContactForm;

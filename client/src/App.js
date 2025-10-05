@@ -3,52 +3,54 @@ import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
 import ProductDetail from "./components/ProductDetail";
 import ContactForm from "./components/ContactForm";
+import "./App.css";
 
 function App() {
-const [productos, setProductos] = useState([]);
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState(null);
-const [selectedProduct, setSelectedProduct] = useState(null);
-const [carrito, setCarrito] = useState([]);
+  const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [carrito, setCarrito] = useState([]);
 
-useEffect(() => {
+  useEffect(() => {
     fetch("http://localhost:5000/api/productos")
-    .then((res) => {
-        if (!res.ok) throw new Error("Error al cargar productos");
-        return res.json();
-    })
-    .then((data) => {
+      .then((res) => res.json())
+      .then((data) => {
         setProductos(data);
         setLoading(false);
-    })
-    .catch((err) => {
-        setError(err.message);
+      })
+      .catch(() => {
+        setError(true);
         setLoading(false);
-    });
-}, []);
+      });
+  }, []);
 
-const handleAddToCart = (producto) => {
+  const addToCart = (producto) => {
     setCarrito([...carrito, producto]);
-};
+  };
 
-return (
-    <div>
-    <Navbar carritoCount={carrito.length} />
-    {loading && <p>Cargando productos...</p>}
-    {error && <p>{error}</p>}
-    {!loading && !error && !selectedProduct && (
-        <ProductList productos={productos} onSelect={setSelectedProduct} />
-    )}
-    {selectedProduct && (
-        <ProductDetail
-        producto={selectedProduct}
-        onBack={() => setSelectedProduct(null)}
-        onAddToCart={handleAddToCart}
-        />
-    )}
-    <ContactForm />
+  const handleSelectProduct = (producto) => {
+    setSelectedProduct(producto);
+  };
+
+  const handleBackToList = () => {
+    setSelectedProduct(null);
+  };
+
+  return (
+    <div className="App">
+      <Navbar carritoCount={carrito.length} />
+      {loading && <p style={{ padding: "2rem" }}>Cargando...</p>}
+      {error && <p style={{ padding: "2rem", color: "red" }}>Error al cargar productos</p>}
+      {!loading && !error && !selectedProduct && (
+        <ProductList productos={productos} onSelect={handleSelectProduct} />
+      )}
+      {selectedProduct && (
+        <ProductDetail producto={selectedProduct} addToCart={addToCart} onBack={handleBackToList} />
+      )}
+      <ContactForm />
     </div>
-);
+  );
 }
 
 export default App;
