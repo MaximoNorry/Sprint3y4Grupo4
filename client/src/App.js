@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./src/components/Navbar";
-import ProductList from "./src/components/ProductList";
-import ProductDetail from "./src/components/ProductDetail";
-import ContactForm from "./src/components/ContactForm";
+import Navbar from "./components/Navbar";
+import ProductList from "./components/ProductList";
+import ProductDetail from "./components/ProductDetail";
+import ContactForm from "./components/ContactForm";
 
 function App() {
 const [productos, setProductos] = useState([]);
