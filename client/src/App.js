@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Navbar from "./src/components/Navbar";
+import ProductList from "./src/components/ProductList";
+import ProductDetail from "./src/components/ProductDetail";
+import ContactForm from "./src/components/ContactForm";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const [productos, setProductos] = useState([]);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+const [selectedProduct, setSelectedProduct] = useState(null);
+const [carrito, setCarrito] = useState([]);
+
+useEffect(() => {
+    fetch("http://localhost:5000/api/productos")
+    .then((res) => {
+        if (!res.ok) throw new Error("Error al cargar productos");
+        return res.json();
+    })
+    .then((data) => {
+        setProductos(data);
+        setLoading(false);
+    })
+    .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+    });
+}, []);
+
+const handleAddToCart = (producto) => {
+    setCarrito([...carrito, producto]);
+};
+
+return (
+    <div>
+    <Navbar carritoCount={carrito.length} />
+    {loading && <p>Cargando productos...</p>}
+    {error && <p>{error}</p>}
+    {!loading && !error && !selectedProduct && (
+        <ProductList productos={productos} onSelect={setSelectedProduct} />
+    )}
+    {selectedProduct && (
+        <ProductDetail
+        producto={selectedProduct}
+        onBack={() => setSelectedProduct(null)}
+        onAddToCart={handleAddToCart}
+        />
+    )}
+    <ContactForm />
     </div>
-  );
+);
 }
 
 export default App;
