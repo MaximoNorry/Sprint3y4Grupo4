@@ -6,7 +6,8 @@ const productos = [
     medidas: "180 × 45 × 75 cm",
     materiales: "Nogal macizo FSC®, herrajes de latón",
     acabado: "Aceite natural ecológico",
-    img: "/images/aparador uspallata.png"
+    img: "/images/aparador uspallata.png",
+    precio: 250000
 },
 {
     id: 2,
@@ -15,7 +16,8 @@ const productos = [
     medidas: "100 × 35 × 200 cm",
     materiales: "Estructura de acero, estantes de roble",
     acabado: "Laca mate ecológica",
-    img: "/images/biblioteca recoleta.png"
+    img: "/images/biblioteca recoleta.png",
+    precio: 190000
 },
 {
     id: 3,
@@ -24,7 +26,8 @@ const productos = [
     medidas: "80 × 75 × 85 cm",
     materiales: "Guatambú macizo, tela bouclé",
     acabado: "Cera vegetal, tapizado premium",
-    img: "/images/butaca mendoza.png"
+    img: "/images/butaca mendoza.png",
+    precio: 160000
 },
 {
     id: 4,
@@ -33,7 +36,8 @@ const productos = [
     medidas: "90 × 85 × 95 cm",
     materiales: "Cuero curtido vegetal, acero pintado",
     acabado: "Cuero anilina premium",
-    img: "/images/sillón copacabana.png"
+    img: "/images/sillón copacabana.png",
+    precio: 310000
 },
 {
     id: 5,
@@ -42,7 +46,8 @@ const productos = [
     medidas: "90 × 90 × 45 cm",
     materiales: "Sobre de mármol Patagonia, patas de nogal",
     acabado: "Mármol pulido, aceite natural en madera",
-    img: "/images/mesa de centro araucaria.png"
+    img: "/images/mesa de centro araucaria.png",
+    precio: 220000
 },
 {
     id: 6,
@@ -51,7 +56,8 @@ const productos = [
     medidas: "45 × 35 × 60 cm",
     materiales: "Roble macizo FSC®, herrajes soft-close",
     acabado: "Barniz mate de poliuretano",
-    img: "/images/mesa de noche aconcagua.png"
+    img: "/images/mesa de noche aconcagua.png",
+    precio: 95000
 },
 {
     id: 7,
@@ -60,7 +66,8 @@ const productos = [
     medidas: "160 × 200 × 90 cm",
     materiales: "Roble macizo FSC®, tapizado lino",
     acabado: "Aceite natural, tapizado premium",
-    img: "/images/cama neuquén.png"
+    img: "/images/cama neuquén.png",
+    precio: 350000
 },
 {
     id: 8,
@@ -69,7 +76,9 @@ const productos = [
     medidas: "220 × 90 × 80 cm",
     materiales: "Madera de eucalipto certificada FSC®, lino 100% natural premium",
     acabado: "Espuma HR + plumón reciclado",
-    img: "/images/sofá patagonia.png"
+    img: "/images/sofá patagonia.png",
+    precio: 420000
+
 },
 {
     id: 9,
@@ -78,7 +87,8 @@ const productos = [
     medidas: "160-240 × 90 × 75 cm",
     materiales: "Roble macizo FSC®, mecanismo alemán",
     acabado: "Aceite-cera natural",
-    img: "/images/mesa comedor pampa.png"
+    img: "/images/mesa comedor pampa.png",
+    precio: 280000
 },
 {
     id: 10,
@@ -87,7 +97,8 @@ const productos = [
     medidas: "45 × 52 × 80 cm (cada una)",
     materiales: "Contrachapado nogal, tubo de acero",
     acabado: "Laca mate, pintura epoxi",
-    img: "/images/sillas córdoba.png"
+    img: "/images/sillas córdoba.png",
+    precio: 180000
 },
 {
     id: 11,
@@ -96,7 +107,8 @@ const productos = [
     medidas: "120 × 60 × 75 cm",
     materiales: "Bambú laminado, herrajes ocultos",
     acabado: "Laca mate resistente",
-    img: "/images/escritorio costa.png"
+    img: "/images/escritorio costa.png",
+    precio: 140000
 },
 {
     id: 12,
@@ -105,7 +117,8 @@ const productos = [
     medidas: "60 × 60 × 90-100 cm",
     materiales: "Malla técnica, tejido reciclado",
     acabado: "Base cromada, tapizado premium",
-    img: "/images/silla de trabajo belgrano.png"
+    img: "/images/silla de trabajo belgrano.png",
+    precio: 130000
 }
 ];
 
