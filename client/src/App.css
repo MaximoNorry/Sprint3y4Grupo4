@@ -30,31 +30,42 @@ body {
   justify-content: space-between;
   align-items: center;
   font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-
-.logo-titulo img.logo {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-  background-color: #fff;
-  padding: 4px;
-  border-radius: 8px;
-}
-
 
 .navbar h1 {
   font-family: var(--font-secondary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-size: 1.5rem;
-  margin: 0;
+  font-size: 1.6rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
 }
 
-.navbar .carrito {
+.logo-titulo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.carrito {
   background-color: var(--color-acento);
   padding: 0.4rem 0.8rem;
   border-radius: 8px;
   font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.carrito:hover {
+  background-color: var(--color-detalle);
 }
 
 .product-list {
@@ -68,14 +79,14 @@ body {
   background-color: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: translateY(-7px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
 .product-card img {
@@ -105,12 +116,13 @@ body {
   background-color: #fff;
   border-radius: 12px;
   margin: 2rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
 
 .product-detail img {
-  width: 300px;
-  border-radius: 8px;
+  width: 350px;
+  max-width: 90%;
+  border-radius: 10px;
   margin-bottom: 1rem;
 }
 
@@ -119,45 +131,50 @@ body {
   color: var(--color-principal);
   margin-bottom: 0.5rem;
   font-size: 1.8rem;
-  text-align: center;
 }
 
 .product-detail p {
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
   font-size: 1rem;
-  color: #555;
 }
 
-.product-detail .detalle {
+.product-detail .caracteristicas {
+  width: 100%;
+  max-width: 500px;
   text-align: left;
-  margin: 0.3rem 0;
+  margin-top: 1rem;
+}
+
+.product-detail .caracteristicas li {
+  margin-bottom: 0.5rem;
   font-size: 0.95rem;
-  color: #444;
 }
 
 .product-detail button {
   background-color: var(--color-secundario);
   color: #fff;
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1.5rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s, transform 0.2s;
   margin-top: 1rem;
 }
 
 .product-detail button:hover {
   background-color: var(--color-acento);
+  transform: scale(1.05);
 }
+
 .contact-form {
   background-color: #fff;
   border-radius: 12px;
   padding: 2rem;
   margin: 2rem auto;
   max-width: 500px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
 
 .contact-form label {
@@ -175,16 +192,18 @@ body {
   border: 1px solid #ccc;
   border-radius: 6px;
   font-family: var(--font-primary);
+  font-size: 0.95rem;
 }
 
 .contact-form button {
   background-color: var(--color-principal);
   color: #fff;
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1.5rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 .contact-form button:hover {
@@ -194,8 +213,8 @@ body {
 .footer {
   background-color: var(--color-principal);
   color: #fff;
-  text-align: center;
   padding: 1.5rem 2rem;
+  text-align: center;
   font-size: 0.9rem;
   margin-top: 2rem;
 }
@@ -203,19 +222,25 @@ body {
 .footer a {
   color: var(--color-acento);
   text-decoration: none;
-  font-weight: bold;
+  margin: 0 0.3rem;
 }
 
 .footer a:hover {
   text-decoration: underline;
 }
 
-/* UTILS */
-h1, h2, h3 {
-  font-family: var(--font-secondary);
-}
+@media(max-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
 
-button {
-  font-family: var(--font-primary);
-}
+  .navbar h1 {
+    font-size: 1.3rem;
+  }
 
+  .product-detail img {
+    width: 90%;
+  }
+}

@@ -37,11 +37,9 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar cantidadCarrito={carrito.length} volverAlCatalogo={volverAlCatalogo} />
-
+      <Navbar carritoCount={carrito.length} volverAlCatalogo={volverAlCatalogo} />
       {cargando && <p>Cargando...</p>}
       {error && <p>Error al cargar los productos.</p>}
-
       {!productoSeleccionado && !cargando && !error && (
         <ProductList productos={productos} setProductoSeleccionado={setProductoSeleccionado} />
       )}
