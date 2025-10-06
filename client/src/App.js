@@ -6,11 +6,13 @@ import ProductList from "./components/ProductList";
 import ProductDetail from "./components/ProductDetail";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import CarritoModal from "./components/CarritoModal";
 
 function App() {
   const [productos, setProductos] = useState([]);
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
   const [carrito, setCarrito] = useState([]);
+  const [mostrarCarrito, setMostrarCarrito] = useState(false);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(false);
 
@@ -28,19 +30,29 @@ function App() {
   }, []);
 
   const handleAgregarAlCarrito = (item) => {
-  const existente = carrito.find(p => p.id === item.id);
+    const existente = carrito.find(p => p.id === item.id);
 
-  if (existente) {
-    // si ya está en el carrito, aumenta la cantidad
-    const nuevoCarrito = carrito.map(p =>
-      p.id === item.id ? { ...p, cantidad: p.cantidad + item.cantidad } : p
-    );
-    setCarrito(nuevoCarrito);
-  } else {
-    //si no, lo agrego con la cantidad seleccionada
-    setCarrito([...carrito, item]);
-  }
-};
+    if (existente) {
+      const nuevoCarrito = carrito.map(p =>
+        p.id === item.id ? { ...p, cantidad: p.cantidad + item.cantidad } : p
+      );
+      setCarrito(nuevoCarrito);
+    } else {
+      setCarrito([...carrito, item]);
+    }
+  };
+
+  const quitarDelCarrito = (idProducto) => {
+    setCarrito(carrito.filter(p => p.id !== idProducto));
+  };
+
+  const vaciarCarrito = () => {
+    setCarrito([]);
+  };
+
+  const toggleCarrito = () => {
+    setMostrarCarrito(!mostrarCarrito);
+  };
 
   const volverAlCatalogo = () => {
     setProductoSeleccionado(null);
@@ -48,17 +60,40 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar carritoCount={carrito.length} volverAlCatalogo={volverAlCatalogo} />
+      <Navbar
+        carritoCount={carrito.reduce((acc, p) => acc + p.cantidad, 0)}
+        volverAlCatalogo={volverAlCatalogo}
+        toggleCarrito={toggleCarrito}
+      />
+
+      {mostrarCarrito && (
+        <CarritoModal
+          carrito={carrito}
+          quitarDelCarrito={quitarDelCarrito}
+          vaciarCarrito={vaciarCarrito}
+          cerrar={toggleCarrito}
+        />
+      )}
+
       {cargando && <p>Cargando...</p>}
       {error && <p>Error al cargar los productos.</p>}
+
       {!productoSeleccionado && !cargando && !error && (
-        <ProductList productos={productos} setProductoSeleccionado={setProductoSeleccionado} />
+        <ProductList
+          productos={productos}
+          setProductoSeleccionado={setProductoSeleccionado}
+          onAgregar={handleAgregarAlCarrito}
+        />
       )}
 
       {productoSeleccionado && (
-        <ProductDetail producto={productoSeleccionado} onAddToCart={handleAgregarAlCarrito} />
+        <ProductDetail
+          producto={productoSeleccionado}
+          onAddToCart={handleAgregarAlCarrito}
+        />
       )}
-      <ContactForm/>
+
+      <ContactForm />
       <Footer />
     </div>
   );
