@@ -1,10 +1,13 @@
 **Sprint 3 y 4-Grupo 4**
 
 **Integrantes**
-.
-.
-.
-.
+.Lara Eliana Ienco
+
+.Máximo Norry
+
+.Johann Graneros
+
+.Julieta Mamani
 
 **Intrucciones de instalación**
 
@@ -23,7 +26,7 @@ npm install
 -Iniciar servidor:
 npm start
 
-El backend correrá por defecto en http://localhost:5000.
+El backend correrá por defecto en http://localhost:5000/api/productos.
 
 **Frontend**
 
