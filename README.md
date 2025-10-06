@@ -1,6 +1,7 @@
 **Sprint 3 y 4-Grupo 4**
 
-**Integrantes**
+**Integrantes:**
+
 .Lara Eliana Ienco
 
 .Máximo Norry
@@ -12,7 +13,9 @@
 **Intrucciones de instalación**
 
 El proyecto está organizado como un monorepo con dos carpetas principales:
+
 /backend  → API con Node.js y Express
+
 /client   → Frontend con React
 
 **Backend**
